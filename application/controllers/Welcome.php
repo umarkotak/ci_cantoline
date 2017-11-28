@@ -20,6 +20,14 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		// index will load everything rightaway
+		// to access this controller ci/index.php/welcome
+		// $this->load->view('welcome_message');
+		echo "this is welcome controller";
+	}
+
+	public function test(){
+		// to access this controller ci/index.php/welcome/test		
+		echo "this is test method";
 	}
 }

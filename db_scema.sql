@@ -1,6 +1,6 @@
-CREATE TABLE users (
-  id            int,
-  username      varchar(30),
+create table users (
+  id            int primary key auto_increment,
+  username      varchar(30) unique,
   password      varchar(30),
   name          varchar(40),
   phone         varchar(12),
@@ -10,7 +10,7 @@ CREATE TABLE users (
   auth_crypt    varchar(70)
 );
 
-CREATE TABLE foods (
+create table foods (
   id            int,
   name          varchar(30),
   category_id   varchar(20),
@@ -20,20 +20,20 @@ CREATE TABLE foods (
   price         int
 );
 
-CREATE TABLE categories(
+create table categories(
   id            int,
   name          varchar(20),
   description   text
 );
 
-CREATE TABLE food_reviews (
+create table food_reviews (
   foods_id      int,
   users_id      int,
   rating        int,
   review        text
 );
 
-CREATE TABLE carts (
+create table carts (
   id            int,  
   users_id      int,
   foods_id      int,
@@ -42,14 +42,14 @@ CREATE TABLE carts (
   status        varchar(15)
 );
 
-CREATE TABLE orders (
+create table orders (
   id            int,
   users_id      int,
   payment_date  date,
   total_price   int
 );
 
-CREATE TABLE posts (
+create table posts (
   id            int,
   title         varchar(40),
   content       text,
@@ -57,7 +57,7 @@ CREATE TABLE posts (
   author        varchar(30)
 );
 
-CREATE TABLE comments (
+create table comments (
   id            int,
   posts_id      int,
   content       text,
