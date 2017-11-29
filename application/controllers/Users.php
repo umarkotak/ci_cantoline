@@ -2,7 +2,7 @@
 
 class Users extends CI_Controller {
 
-  public function show($user_id){
+  public function show($user_id=1){
     // loaded on autoload file
     // $this->load->model('user_model');
     $result = $this->user_model->get_users($user_id);
