@@ -49,6 +49,10 @@ create table orders (
   total_price   int
 );
 
+create table query (
+
+);
+
 create table posts (
   id            int,
   title         varchar(40),
