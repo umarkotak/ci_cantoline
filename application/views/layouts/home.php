@@ -28,7 +28,7 @@
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <!-- right nav -->
-            <li><a href="index.php/users/login">Login</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/users/login">Login</a></li>
           </ul>
         </div>
       </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Log in</title>
+  <title>Cantoline | Log in</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   
   <?php $this->load->view('layouts/head') ?>  
@@ -23,7 +23,7 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Canto</b>Line</a>
+    <a href="<?php echo base_url(); ?>"><b>Canto</b>Line</a>
   </div>
 
   <div class="login-box-body">
@@ -47,7 +47,7 @@
           </div>
 
           <div class="form-group">
-            <a href="" class="btn btn-primary btn-block btn-flat btn-sm">Create New Account</a>
+            <a href="<?php echo base_url(); ?>index.php/users/register" class="btn btn-primary btn-block btn-flat btn-sm">Create New Account</a>
           </div>
 
           <div class="form-group">
