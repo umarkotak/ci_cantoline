@@ -12,18 +12,28 @@ class Users extends CI_Controller {
   }
 
   public function register_auth(){
-    $userdata = array(
-      'username'       => $_POST['username'],
-      'name'           => $_POST['name'],
-      'password'       => $_POST['password'],
-      'password_conf'  => $_POST['password_confirmation'],
-      'phone'          => $_POST['phone'],
-      'email'          => $_POST['email'],
-      'type'           => "user",
-      'credit'         => 0
-    );
+    // Validation
+    $this->form_validation->set_rules('username', 'Username', 'trim|min_length[6]|is_unique[users.username]');
+    $this->form_validation->set_rules('password', 'Password', 'trim|min_length[6]');
+    $this->form_validation->set_rules('password_confirmation', 'Password Confirmation', 'matches[password]');
+    $this->form_validation->set_rules('phone', 'Phone', 'trim|min_length[4]');
 
-    $result = $this->user_model->create($userdata);
+    if ($this->form_validation->run() == TRUE) {
+      $userdata = array(
+        'username'       => $_POST['username'],
+        'name'           => $_POST['name'],
+        'password'       => $_POST['password'],
+        'phone'          => $_POST['phone'],
+        'email'          => $_POST['email'],
+        'type'           => "user",
+        'credit'         => 0
+      );
+
+      $result = $this->user_model->create($userdata);
+    } else {
+      $this->session->set_flashdata('login_failed', validation_errors());
+      redirect('users/register');
+    }    
   }
 
   public function login(){
@@ -54,7 +64,11 @@ class Users extends CI_Controller {
       $this->session->set_flashdata('login_failed', "Wrong username or password combination");
       redirect('users/login');
     }
+  }
 
+  public function logout(){
+    $this->session->sess_destroy();
+    redirect('home');
   }
 
 }

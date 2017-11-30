@@ -13,7 +13,7 @@
 <div class="wrapper">
 
   <header class="main-header">
-    <a href="index2.html" class="logo">
+    <a href="<?php echo base_url(); ?>" class="logo">
       <span class="logo-mini"><b>C</b>L</span>
       <span class="logo-lg"><b>Canto</b>Line</span>
     </a>

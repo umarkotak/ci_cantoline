@@ -28,7 +28,14 @@
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <!-- right nav -->
-            <li><a href="<?php echo base_url(); ?>index.php/users/login">Login</a></li>
+
+            <?php if ($this->session->userdata('logged_in')): ?>
+              <li><a href="<?php echo base_url(); ?>index.php/users/"><?php echo $this->session->userdata('name'); ?></a></li>
+              <li><a href="<?php echo base_url(); ?>index.php/users/logout">Logout</a></li>   
+            <?php else: ?>
+              <li><a href="<?php echo base_url(); ?>index.php/users/login">Login</a></li>
+            <?php endif ?>
+
           </ul>
         </div>
       </div>
@@ -42,8 +49,8 @@
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
-          Home
-          <small>Your daily apps for easy ordering</small>
+          Canteen Online
+          <small>Click Take Eat</small>
         </h1>
         <ol class="breadcrumb">
           <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
@@ -54,6 +61,15 @@
 
       <!-- Main content -->
       <section class="content">
+        
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Blank Box</h3>
+          </div>
+          <div class="box-body">
+            The great content goes here
+          </div>          
+        </div>
 
       </section>
     </div>
