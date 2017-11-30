@@ -2,8 +2,7 @@
 
 class Users extends CI_Controller {
   public function index(){
-
-    $data['main_view'] = "user";
+    $data['main_view'] = "user/index";
     $this->load->view('layouts/user', $data);
   }
 

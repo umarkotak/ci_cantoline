@@ -30,10 +30,14 @@
             <!-- right nav -->
 
             <?php if ($this->session->userdata('logged_in')): ?>
-              <li><a href="<?php echo base_url(); ?>index.php/users/"><?php echo $this->session->userdata('name'); ?></a></li>
-              <li><a href="<?php echo base_url(); ?>index.php/users/logout">Logout</a></li>   
+              <?php if ($this->session->userdata('type')=="admin"): ?>
+                <li><a href="<?php echo base_url(); ?>index.php/admin/"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('name'); ?></a></li>
+              <?php else: ?>
+                <li><a href="<?php echo base_url(); ?>index.php/users/"><span class="glyphicon glyphicon-user"></span> <?php echo $this->session->userdata('name'); ?></a></li>
+              <?php endif ?>
+              <li><a href="<?php echo base_url(); ?>index.php/users/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>   
             <?php else: ?>
-              <li><a href="<?php echo base_url(); ?>index.php/users/login">Login</a></li>
+              <li><a href="<?php echo base_url(); ?>index.php/users/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <?php endif ?>
 
           </ul>
