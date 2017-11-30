@@ -57,6 +57,7 @@
         <li><a href=""><i class="fa fa-tags"></i><span>Category Data</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Post</span></a></li>
         <li><a href=""><i class="fa fa-file-o"></i><span>Post Data</span></a></li>
+        <li><a href=""><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>
       </ul>
     </section>
   </aside>

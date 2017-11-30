@@ -11,7 +11,7 @@ create table users (
 );
 
 create table foods (
-  id            int,
+  id            int primary key auto_increment,
   name          varchar(30),
   category_id   varchar(20),
   image         varchar(30),
@@ -21,14 +21,14 @@ create table foods (
 );
 
 create table categories(
-  id            int,
+  id            int primary key auto_increment,
   name          varchar(20),
   description   text
 );
 
 create table food_reviews (
-  foods_id      int,
   users_id      int,
+  foods_id      int,
   rating        int,
   review        text
 );
@@ -43,18 +43,19 @@ create table carts (
 );
 
 create table orders (
-  id            int,
+  id            int primary key,
   users_id      int,
   payment_date  date,
   total_price   int
 );
 
 create table query (
-
+  id            int primary key auto_increment,
+  orders_id     int
 );
 
 create table posts (
-  id            int,
+  id            int primary key auto_increment,
   title         varchar(40),
   content       text,
   created_date  date,
@@ -62,7 +63,7 @@ create table posts (
 );
 
 create table comments (
-  id            int,
+  id            int primary key auto_increment,
   posts_id      int,
   content       text,
   users_id      int

@@ -11,44 +11,53 @@
 
 <!-- Main content -->
 <section class="content">
-  <div class="box box-info">
+  <div class="box box-primary">
+
     <div class="box-header with-border">
-      <h3 class="box-title"></h3>
+      <h3 class="box-title">Create New Food</h3>
     </div>
-    <!-- /.box-header -->
-    <!-- form start -->
-    <form class="form-horizontal">
+
+    <?php echo form_open('admin/create_food'); ?>
       <div class="box-body">
-        <div class="form-group">
-          <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-          <div class="col-sm-4">
-            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-          </div>
-        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label>Food Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Food Name" required>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea name="description" class="form-control" rows="3" placeholder="Description" required=""></textarea>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <select name="category_id" class="form-control">
+                <?php $query = $this->db->get('categories'); ?>
+                <?php foreach ($query->result() as $row) { ?>
+                  <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+                <?php } ?>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputFile">Image File</label>
+              <input type="file" >
 
-        <div class="form-group">
-          <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-          <div class="col-sm-4">
-            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+              <p class="help-block">Upload your image file here, with format : .jpg</p>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> Remember me
-              </label>
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label>Price</label>
+              <input type="number" name="price" class="form-control" placeholder="Price" required>
             </div>
           </div>
         </div>
       </div>
-      <!-- /.box-body -->
+
       <div class="box-footer">
-        <button type="submit" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-info pull-right">Sign in</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
-      <!-- /.box-footer -->
-    </form>
+    <?php echo form_close(); ?>
   </div>
 </section>
