@@ -17,10 +17,10 @@
       <h3 class="box-title">Create New Food</h3>
     </div>
 
-    <?php echo form_open('admin/create_food'); ?>
+    <?php echo form_open('foods/create_food'); ?>
       <div class="box-body">
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-md-6">
             <div class="form-group">
               <label>Food Name</label>
               <input type="text" name="name" class="form-control" placeholder="Food Name" required>
@@ -38,25 +38,36 @@
                 <?php } ?>
               </select>
             </div>
-            <div class="form-group">
-              <label for="exampleInputFile">Image File</label>
-              <input type="file" >
-
-              <p class="help-block">Upload your image file here, with format : .jpg</p>
-            </div>
           </div>
 
-          <div class="col-xs-6">
+          <div class="col-md-6">
             <div class="form-group">
               <label>Price</label>
               <input type="number" name="price" class="form-control" placeholder="Price" required>
+            </div>
+            <div class="form-group">
+              <label>Stock</label>
+              <input type="number" name="stock" class="form-control" placeholder="Stock" required>
+            </div>            
+            <div class="form-group">
+              <label for="exampleInputFile">Image File</label>
+              <input type="file" required>
+
+              <p class="help-block">Upload your image file here, with format : .jpg</p>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input name="confrimation" type="checkbox" required>I ensure all food data is valid
+                </label>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="box-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i><span>Add Food</span></button>
       </div>
     <?php echo form_close(); ?>
   </div>

@@ -52,7 +52,7 @@
         <li><a href="<?php echo base_url(); ?>index.php/users"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
         <li><a href=""><i class="fa fa-line-chart"></i><span>Statistics</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Food</span></a></li>
-        <li><a href="<?php echo base_url(); ?>index.php/admin/food"><i class="glyphicon glyphicon-grain"></i><span>Food Data</span></a></li>
+        <li><a href=""><i class="glyphicon glyphicon-grain"></i><span>Food Data</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Category</span></a></li>
         <li><a href=""><i class="fa fa-tags"></i><span>Category Data</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Post</span></a></li>

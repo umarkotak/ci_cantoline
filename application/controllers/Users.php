@@ -58,7 +58,12 @@ class Users extends CI_Controller {
 
       $this->session->set_userdata($user_data);
 
-      redirect('users');
+      if ($user_data['type'] == "admin") {
+        redirect('admin');
+      } else {
+        redirect('users');
+      }
+      
     } else {
       $this->session->set_flashdata('login_failed', "Wrong username or password combination");
       redirect('users/login');
