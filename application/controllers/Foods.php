@@ -45,12 +45,25 @@ class Foods extends CI_Controller {
     
   }
 
-  public function update_food(){
-    
+  public function update_food($food_id){
+    $fooddata = array(
+      'description'   => $_POST['description'],
+      'price'         => $_POST['price'],
+      'stock'         => $_POST['stock'],
+    );
+
+    $this->food_model->update_food($food_id ,$fooddata);
+    redirect('admin/food');
   }
 
-  public function delete_food(){
-    
+  public function delete_food($food_id, $food_name){
+    $this->food_model->delete_food($food_id);
+
+    $food_name = str_replace('%20', '_', $food_name);
+    $file = "uploads/food_image/".$food_name.".jpg";
+    unlink($file);
+
+    redirect('admin/food');
   }
 
   public function add_food(){
@@ -59,29 +72,6 @@ class Foods extends CI_Controller {
 
   public function subtract_food(){
     
-  }
-
-  public function do_upload(){
-    $config['upload_path']          = './uploads/';
-    $config['allowed_types']        = 'gif|jpg|png';
-    $config['max_size']             = 100;
-    $config['max_width']            = 1024;
-    $config['max_height']           = 768;
-
-    $this->load->library('upload', $config);
-
-    if ( ! $this->upload->do_upload('userfile'))
-    {
-            $error = array('error' => $this->upload->display_errors());
-
-            $this->load->view('upload_form', $error);
-    }
-    else
-    {
-            $data = array('upload_data' => $this->upload->data());
-
-            $this->load->view('upload_success', $data);
-    }
   }
 }
 

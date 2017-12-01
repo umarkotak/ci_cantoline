@@ -1,6 +1,7 @@
 <?php 
 
 class Users extends CI_Controller {
+  
   public function index(){
     $data['main_view'] = "user/index";
     $this->load->view('layouts/user', $data);
@@ -29,6 +30,7 @@ class Users extends CI_Controller {
       );
 
       $result = $this->user_model->create($userdata);
+      redirect('users/login');
     } else {
       $this->session->set_flashdata('login_failed', validation_errors());
       redirect('users/register');
