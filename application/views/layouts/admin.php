@@ -57,7 +57,7 @@
         <li><a href=""><i class="fa fa-tags"></i><span>Category Data</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Post</span></a></li>
         <li><a href=""><i class="fa fa-file-o"></i><span>Post Data</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/admin/profile"><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>
       </ul>
     </section>
   </aside>
@@ -71,10 +71,10 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Version</b> 0.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2017-2018 <a href="http://www.umarkotak.com">M Umar Ramadhana</a>.</strong> All rights
+      reserved.
   </footer>
 
 </div>

@@ -22,6 +22,11 @@ class Admin extends CI_Controller {
     $data['food_id'] = $food_id;
     $this->load->view('layouts/admin', $data);
   }
+
+  public function profile(){
+    $data['main_view'] = "admin/profile";
+    $this->load->view('layouts/admin', $data);
+  }
 }
 
 ?>

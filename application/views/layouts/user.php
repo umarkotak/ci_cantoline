@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('logged_in')): ?>
+<?php if ($this->session->userdata('logged_in') && $this->session->userdata('type') == "admin"): ?>
 
 <!DOCTYPE html>
 <html>
@@ -50,13 +50,10 @@
         <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?php echo base_url(); ?>index.php/users"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-        <li><a href=""><i class="fa fa-line-chart"></i><span>Statistics</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Food</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-grain"></i><span>Food Data</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Category</span></a></li>
-        <li><a href=""><i class="fa fa-tags"></i><span>Category Data</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Post</span></a></li>
-        <li><a href=""><i class="fa fa-file-o"></i><span>Post Data</span></a></li>
+        <li><a href=""><i class="glyphicon glyphicon-shopping-cart"></i><span>Order Cart</span></a></li>
+        <li><a href=""><i class="glyphicon glyphicon-grain"></i><span>Order Food</span></a></li>
+        <li><a href=""><i class="glyphicon glyphicon-book"></i><span>Order History</span></a></li>
+        <li><a href=""><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>
       </ul>
     </section>
   </aside>
@@ -68,14 +65,28 @@
 
   </div>
 
+  <footer class="main-footer">
+    <div class="pull-right hidden-xs">
+      <b>Version</b> 0.0
+    </div>
+    <strong>Copyright &copy; 2017-2018 <a href="http://www.umarkotak.com">M Umar Ramadhana</a>.</strong> All rights
+      reserved.
+  </footer>
+
 </div>
 
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/bower_components/fastclick/lib/fastclick.js"></script>
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#tables').DataTable();
+  });
+</script>
 </body>
 </html>
 
