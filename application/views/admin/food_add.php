@@ -1,3 +1,23 @@
+<?php if ($this->session->flashdata('errors')): ?>
+
+<div class="callout callout-danger">
+<p>
+  <b>error : </b>
+  <?php echo $this->session->flashdata('errors'); ?>
+</p>
+</div>
+
+<?php elseif($this->session->flashdata('success')): ?>
+
+<div class="callout callout-success">
+<p>
+  <b>success : </b>
+  <?php echo $this->session->flashdata('success'); ?>
+</p>
+</div>
+
+<?php endif ?>
+
 <section class="content-header">
   <h1>
     Food Add
@@ -17,7 +37,7 @@
       <h3 class="box-title">Create New Food</h3>
     </div>
 
-    <?php echo form_open('foods/create_food'); ?>
+    <?php echo form_open_multipart('foods/create_food'); ?>
       <div class="box-body">
         <div class="row">
           <div class="col-md-6">
@@ -50,8 +70,8 @@
               <input type="number" name="stock" class="form-control" placeholder="Stock" required>
             </div>            
             <div class="form-group">
-              <label for="exampleInputFile">Image File</label>
-              <input type="file" required>
+              <label>Image File</label>
+              <input type="file" name="image_file" required>
 
               <p class="help-block">Upload your image file here, with format : .jpg</p>
             </div>
