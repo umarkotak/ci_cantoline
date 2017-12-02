@@ -13,7 +13,7 @@ create table users (
 create table foods (
   id            int primary key auto_increment,
   name          varchar(30),
-  category_id   varchar(20),
+  category_id   int,
   image         varchar(30),
   description   text,
   stock         int,
