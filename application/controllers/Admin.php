@@ -27,6 +27,11 @@ class Admin extends CI_Controller {
     $data['main_view'] = "admin/profile";
     $this->load->view('layouts/admin', $data);
   }
+
+  public function user_data(){
+    $data['main_view'] = 'admin/user_data';
+    $this->load->view('layouts/admin', $data);
+  }
 }
 
 ?>

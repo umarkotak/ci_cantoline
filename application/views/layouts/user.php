@@ -50,10 +50,10 @@
         <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?php echo base_url(); ?>index.php/users"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-shopping-cart"></i><span>Order Cart</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-grain"></i><span>Order Food</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-book"></i><span>Order History</span></a></li>
-        <li><a href=""><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/users/order_cart"><i class="glyphicon glyphicon-shopping-cart"></i><span>My Cart</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/users/order_food"><i class="glyphicon glyphicon-grain"></i><span>Order Food</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/users/order_history"><i class="glyphicon glyphicon-book"></i><span>Order History</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/users/profile"><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>
       </ul>
     </section>
   </aside>

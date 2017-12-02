@@ -102,8 +102,26 @@ class Users extends CI_Controller {
     
   }
 
-  public function user_data(){
-    
+  // User Service
+
+  public function profile(){
+    $data['main_view'] = "user/profile";
+    $this->load->view('layouts/user', $data);
+  }
+
+  public function order_food(){
+    $data['main_view'] = "user/order_food";
+    $this->load->view('layouts/user', $data);
+  }
+
+  public function order_cart(){
+    $data['main_view'] = "user/order_cart";
+    $this->load->view('layouts/user', $data);
+  }
+
+  public function order_history(){
+    $data['main_view'] = "user/order_history";
+    $this->load->view('layouts/user', $data);
   }
 
 }

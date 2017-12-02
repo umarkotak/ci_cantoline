@@ -70,10 +70,6 @@
           </tr>
         <?php } ?>
         </tbody>
-
-        <tfoot>
-          
-        </tfoot>
       </table>
 
     </div>
