@@ -27,6 +27,7 @@ create table categories(
 );
 
 create table food_reviews (
+  id            int primary key auto_increment,
   users_id      int,
   foods_id      int,
   rating        int,
@@ -34,7 +35,8 @@ create table food_reviews (
 );
 
 create table carts (
-  id            int,  
+  id            int primary key auto_increment,
+  orders_id     int,  
   users_id      int,
   foods_id      int,
   quantity      int,
