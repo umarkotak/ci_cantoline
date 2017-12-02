@@ -22,6 +22,7 @@ class Foods extends CI_Controller {
       $config['upload_path']          = 'uploads/food_image/';
       $config['allowed_types']        = 'jpg';
       $config['max_size']             = 1000;
+      $config['overwrite']            = true;
       $config['file_name']            = $_POST['name'];
       $this->load->library('upload', $config);
 

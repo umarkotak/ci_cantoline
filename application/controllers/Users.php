@@ -53,6 +53,7 @@ class Users extends CI_Controller {
         'username' => $result->username,
         'name' => $result->name,
         'email' => $result->email,
+        'phone' => $result->phone,
         'type' => $result->type,
         'credit' => $result->credit,
         'logged_in' => true
@@ -75,6 +76,34 @@ class Users extends CI_Controller {
   public function logout(){
     $this->session->sess_destroy();
     redirect('home');
+  }
+
+  public function upload_photo(){
+    $config['upload_path']          = 'uploads/user_image/';
+    $config['allowed_types']        = 'jpg';
+    $config['max_size']             = 1000;
+    $config['min_width']            = 399;
+    $config['min_height']           = 399;
+    $config['overwrite']            = true;
+    $config['file_name']            = $this->session->userdata('username');
+    $this->load->library('upload', $config);
+
+    if ($this->upload->do_upload('image_file')) {
+      $this->session->set_flashdata('success', "Picture successfully uploaded");
+    } else {
+      $this->session->set_flashdata('errors', $this->upload->display_errors());
+    }
+
+    if ($this->session->userdata('type') == "admin") {
+      redirect('admin/profile');
+    } else {
+      redirect('users/profile');
+    }
+    
+  }
+
+  public function user_data(){
+    
   }
 
 }

@@ -1,4 +1,4 @@
-<?php if ($this->session->userdata('logged_in') && $this->session->userdata('type') == "admin"): ?>
+<?php if ($this->session->userdata('logged_in')): ?>
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +43,7 @@
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->userdata('name'); ?></p>
-          <p style="">credit : <?php echo $this->session->userdata('credit'); ?></p>
+          <p><i class="fa fa-money"></i> credit : <?php echo $this->session->userdata('credit'); ?></p>
         </div>
       </div>
 

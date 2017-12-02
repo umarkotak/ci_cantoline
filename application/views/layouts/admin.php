@@ -43,7 +43,7 @@
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->userdata('name'); ?></p>
-          <p style="">credit : <?php echo $this->session->userdata('credit'); ?></p>
+          <p><i class="fa fa-money"></i> credit : <?php echo $this->session->userdata('credit'); ?></p>
         </div>
       </div>
 
@@ -57,6 +57,7 @@
         <li><a href=""><i class="fa fa-tags"></i><span>Category Data</span></a></li>
         <li><a href=""><i class="glyphicon glyphicon-plus"></i><span>Add Post</span></a></li>
         <li><a href=""><i class="fa fa-file-o"></i><span>Post Data</span></a></li>
+        <li><a href="<?php echo base_url(); ?>index.php/admin/profile"><i class="glyphicon glyphicon-th"></i><span>User Data</span></a></li>
         <li><a href="<?php echo base_url(); ?>index.php/admin/profile"><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>
       </ul>
     </section>

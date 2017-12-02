@@ -15,7 +15,7 @@
     <div class="col-md-6">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">Order Query</h3>
+          <h3 class="box-title">User Profile</h3>
         </div>
 
 
