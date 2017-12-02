@@ -31,7 +31,7 @@
 
     <?php echo form_open('users/login_auth'); ?>
       <div class="form-group has-feedback">
-        <input type="username" name="username" class="form-control" placeholder="Username" required>
+        <input type="username" name="username" class="form-control" placeholder="Username"  autofocus required>
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
 

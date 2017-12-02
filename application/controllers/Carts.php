@@ -15,8 +15,14 @@ class Carts extends CI_Controller {
       'status'   => "on_order"
     );
 
-    $this->db->insert('carts', $cart_data);
-    redirect('users/order_food');
+    if ($this->form_validation->run() == TRUE) {
+      $this->session->set_flashdata('success', "Your items has been added to cart");
+      $this->db->insert('carts', $cart_data);
+      redirect('users/order_food');
+    } else {
+      $this->session->set_flashdata('errors', validation_errors());
+      redirect('users/order_food');
+    }
   }
 }
 

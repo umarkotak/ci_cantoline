@@ -50,7 +50,17 @@
         <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li><a href="<?php echo base_url(); ?>index.php/users"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
-        <li><a href="<?php echo base_url(); ?>index.php/users/order_cart"><i class="glyphicon glyphicon-shopping-cart"></i><span>My Cart</span></a></li>
+        <li>
+          <a href="<?php echo base_url(); ?>index.php/users/order_cart">
+            <i class="glyphicon glyphicon-shopping-cart"></i><span>My Cart</span>
+            <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
+            <?php $this->db->where('status', "on_order"); ?>
+            <?php $result = $this->db->get('carts') ?>
+            <?php if ($result->num_rows() > 0): ?>
+            <small class="pull-right-container label pull-right bg-red"><?php echo $result->num_rows(); ?></small>
+            <?php endif ?>
+          </a>
+        </li>
         <li><a href="<?php echo base_url(); ?>index.php/users/order_food"><i class="glyphicon glyphicon-grain"></i><span>Order Food</span></a></li>
         <li><a href="<?php echo base_url(); ?>index.php/users/order_history"><i class="glyphicon glyphicon-book"></i><span>Order History</span></a></li>
         <li><a href="<?php echo base_url(); ?>index.php/users/profile"><i class="glyphicon glyphicon-user"></i><span>Profile</span></a></li>

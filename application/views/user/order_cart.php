@@ -20,7 +20,42 @@
 
 
         <div class="box-body">
-          
+
+          <table id="tables" class="table table-bordered table-hover">
+            <thead>
+            <tr>
+              <th width="5">No</th>
+              <th>Menu</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <?php $no = 1; ?>
+            <?php $this->db->select('carts.quantity as quantity, carts.price as price, carts.status as status, carts.users_id, foods.name as food_name, '); ?>
+            <?php $this->db->from('carts'); ?>
+            <?php $this->db->join('foods', 'foods.id = carts.foods_id'); ?>
+            <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
+
+            <?php $query = $this->db->get(); ?>
+
+            <?php foreach($query->result_array() as $object) { ?>
+              <tr>
+                <td><?php echo $no; ?></td>
+                <td><?php echo $object['food_name']; ?></td>
+                <td><?php echo $object['quantity']; ?></td>
+                <td><?php echo $object['price']; ?></td>
+                <td><?php echo $object['status']; ?></td>
+                <td>Action</td>
+              </tr>
+            <?php $no += 1; ?>
+            <?php } ?>
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>
