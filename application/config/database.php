@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'cicantoline.database.windows.net',
+	'username' => 'cicantoline',
+	'password' => 'Umarkotak1',
 	'database' => 'cantoline',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

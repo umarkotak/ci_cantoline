@@ -26,10 +26,10 @@
             <tr>
               <th width="5">No</th>
               <th>Menu</th>
-              <th>Quantity</th>
-              <th>Price</th>
               <th>Status</th>
               <th>Action</th>
+              <th>Quantity</th>
+              <th>Price</th>
             </tr>
             </thead>
 
@@ -46,13 +46,23 @@
               <tr>
                 <td><?php echo $no; ?></td>
                 <td><?php echo $object['food_name']; ?></td>
-                <td><?php echo $object['quantity']; ?></td>
-                <td><?php echo $object['price']; ?></td>
                 <td><?php echo $object['status']; ?></td>
                 <td>Action</td>
+                <td><?php echo $object['quantity']; ?></td>
+                <td><?php echo $object['price']; ?></td>
               </tr>
             <?php $no += 1; ?>
             <?php } ?>
+
+            <tr>
+              <?php $this->db->select_sum('price'); ?>
+              <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
+              <?php $query = $this->db->get('carts'); ?>
+              <?php $query = $query->row(); ?>
+              <td colspan="4"></td>
+              <td><b>Total Payment</b></td>
+              <td><?php echo $query->price; ?></td>
+            </tr>
             </tbody>
           </table>
 
