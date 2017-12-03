@@ -43,7 +43,11 @@
         </div>
         <div class="pull-left info">
           <p><?php echo $this->session->userdata('name'); ?></p>
-          <p><i class="fa fa-money"></i> credit : <?php echo $this->session->userdata('credit'); ?></p>
+
+          <?php $this->db->where('id', $this->session->userdata('user_id')); ?>
+          <?php $result = $this->db->get('users'); ?>
+          <?php $result = $result->row(); ?>
+          <p><i class="fa fa-money"></i> credit : <?php echo $result->credit; ?></p>
         </div>
       </div>
 
