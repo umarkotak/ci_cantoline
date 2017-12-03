@@ -18,8 +18,8 @@
 2. Profile [update photo]
 
 ## To Do
-1. User confirm order
-2. Put cart data to order
+1. User confirm order - done
+2. Put cart data to order - done
 3. Put order data to order query
 4. Admin process order
 5. Admin finish order

@@ -129,7 +129,10 @@
 
     <div class="row no-print">
       <div class="col-xs-12">
-        <button type="button" class="btn btn-success pull-right"><i class="glyphicon glyphicon-ok"></i> Confirm Order</button>
+        <?php echo form_open('orders/add_cart_to_order_confirm'); ?>
+        <input type="hidden" name="total_price" value="<?php echo $query->price; ?>">
+        <button type="submit" class="btn btn-success pull-right"><i class="glyphicon glyphicon-ok"></i> Confirm Order</button>
+        <?php echo form_close(); ?>
       </div>
     </div>
   </section>

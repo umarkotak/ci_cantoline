@@ -16,7 +16,15 @@ class Orders extends CI_Controller {
   }
 
   public function add_cart_to_order_confirm(){
-    
+    $order_data = array(
+      'users_id' => $this->session->userdata('user_id'),
+      'payment_date' => date("Y-m-d"),
+      'total_price' => $this->input->post('total_price'),
+      'status' => "on_order"
+    );
+
+    $this->order_model->add_cart_to_order($order_data);
+    redirect('users');
   }
 }
 

@@ -45,16 +45,11 @@ create table carts (
 );
 
 create table orders (
-  id            int primary key,
+  id            int primary key auto_increment,
   users_id      int,
   payment_date  date,
   total_price   int,
   status        varchar(15)
-);
-
-create table query (
-  id            int primary key auto_increment,
-  orders_id     int
 );
 
 create table posts (
