@@ -5,7 +5,7 @@ class Orders extends CI_Controller {
     $credit = (int) $this->session->userdata('credit');
     $total_price = (int) $this->input->post('total_price');
 
-    if ($credit > $total_price) {
+    if ($credit >= $total_price) {
       $data['main_view'] = "user/order_confirmation";
       $this->load->view('layouts/user', $data);
     } else {
