@@ -21,7 +21,7 @@
 
         <div class="box-body">
           
-          <?php $this->db->select('orders.id as id, orders.payment_date as payment_date, orders.users_id as users_id, users.name as user_name'); ?>
+          <?php $this->db->select('orders.id as id, orders.payment_date as payment_date, orders.users_id as users_id, orders.status as status, users.name as user_name'); ?>
           <?php $this->db->from('orders'); ?>
           <?php $this->db->join('users', 'users.id = orders.users_id') ?>
           <?php $this->db->where('status', "on_order"); ?>
@@ -32,7 +32,7 @@
               <div class="box-header with-border">
                 <h4 class="box-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#<?php echo $object_main->id ?>" class="collapsed" aria-expanded="false">
-                    <?php echo $object_main->id; ?> - <?php echo $object_main->payment_date; ?> - <?php echo $object_main->user_name ?>
+                    #<?php echo $object_main->id; ?> - <?php echo $object_main->payment_date; ?> - <?php echo $object_main->user_name ?>
                   </a>
                 </h4>
               </div>
@@ -90,6 +90,16 @@
                     </tfoot>
                   </table>
 
+                </div>
+
+                <div class="box-footer">
+                  <b>Status : </b>
+                  <small class="label bg-gray <?php if($object_main->status == "on_order") echo 'bg-green' ?>">on_order</small><b> / </b>
+                  <small class="label bg-gray <?php if($object_main->status == "on_process") echo 'bg-green' ?>">on_process</small><b> / </b>
+                  <small class="label bg-gray <?php if($object_main->status == "ready") echo 'bg-green' ?>">ready</small><b> / </b>
+                  <small class="label bg-gray <?php if($object_main->status == "complete") echo 'bg-green' ?>">complete</small>
+
+                  <button class="btn btn-success btn-xs pull-right">Action</button>
                 </div>
               </div>
             </div>
