@@ -54,6 +54,18 @@
             <?php $no += 1; ?>
             <?php } ?>
             </tbody>
+
+            <tfoot>
+              <tr>
+                <?php $this->db->select_sum('price'); ?>
+                <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
+                <?php $query = $this->db->get('carts'); ?>
+                <?php $query = $query->row(); ?>
+                <td colspan="4"></td>
+                <td><b>Total Payment</b></td>
+                <td><?php echo $query->price; ?></td>
+              </tr>
+            </tfoot>>
           </table>
 
         </div>
