@@ -16,3 +16,13 @@
 ## User Side
 1. Add Food to Cart
 2. Profile [update photo]
+
+## To Do
+1. User confirm order
+2. Put cart data to order
+3. Put order data to order query
+4. Admin process order
+5. Admin finish order
+6. User take order
+7. Order complete
+8. Put order to order history

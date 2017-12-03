@@ -48,7 +48,8 @@ create table orders (
   id            int primary key,
   users_id      int,
   payment_date  date,
-  total_price   int
+  total_price   int,
+  status        varchar(15)
 );
 
 create table query (
