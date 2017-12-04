@@ -85,7 +85,7 @@
           <div class="pull-right">
             <?php echo form_open('orders/add_cart_to_order'); ?>
             <input type="hidden" name="total_price" value="<?php echo $total_price; ?>">
-            <button class="btn btn-success">Order Checkout</button>
+            <button class="btn btn-success" <?php if($no == 1) echo "disabled";  ?>>Order Checkout</button>
             <?php echo form_open(); ?>
           </div>
 
