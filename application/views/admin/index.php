@@ -12,7 +12,7 @@
 <!-- Main content -->
 <section class="content">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Order Query</h3>
@@ -54,10 +54,11 @@
 
                     <tbody>
                     <?php $no = 1; ?>
-                    <?php $this->db->select('carts.quantity as quantity, carts.price as price, carts.status as status, carts.users_id, carts.orders_id, foods.name as food_name, foods.price as food_price'); ?>
+                    <?php $this->db->select('carts.quantity as quantity, carts.price as price, carts.status as status, carts.users_id, carts.orders_id as orders_id, foods.name as food_name, foods.price as food_price'); ?>
                     <?php $this->db->from('carts'); ?>
                     <?php $this->db->join('foods', 'foods.id = carts.foods_id'); ?>
                     <?php $this->db->where('users_id', $object_main->users_id); ?>
+                    <?php $this->db->where('orders_id', $object_main->id); ?>
                     <?php $this->db->where('status', "on_order"); ?>
 
                     <?php $query = $this->db->get(); ?>
@@ -80,6 +81,7 @@
                       <tr>
                         <?php $this->db->select_sum('price'); ?>
                         <?php $this->db->where('users_id', $object_main->users_id); ?>
+                        <?php $this->db->where('orders_id', $object_main->id); ?>
                         <?php $query = $this->db->get('carts'); ?>
                         <?php $query = $query->row(); ?>
                         <?php $total_price = $query->price; ?>
@@ -110,7 +112,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="box box-primary">
         <div class="box-header">
           

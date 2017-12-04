@@ -58,7 +58,7 @@
           <a href="<?php echo base_url(); ?>index.php/users/order_cart">
             <i class="glyphicon glyphicon-shopping-cart"></i><span>My Cart</span>
             <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
-            <?php $this->db->where('status', "on_order"); ?>
+            <?php $this->db->where('status', "on_cart"); ?>
             <?php $result = $this->db->get('carts') ?>
             <?php if ($result->num_rows() > 0): ?>
             <small class="pull-right-container label pull-right bg-red"><?php echo $result->num_rows(); ?></small>

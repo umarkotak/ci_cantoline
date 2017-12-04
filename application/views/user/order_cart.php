@@ -50,7 +50,7 @@
             <?php $this->db->from('carts'); ?>
             <?php $this->db->join('foods', 'foods.id = carts.foods_id'); ?>
             <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
-            <?php $this->db->where('status', "on_order"); ?>
+            <?php $this->db->where('status', "on_cart"); ?>
 
             <?php $query = $this->db->get(); ?>
 

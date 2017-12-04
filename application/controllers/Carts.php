@@ -12,7 +12,7 @@ class Carts extends CI_Controller {
       'foods_id' => $this->input->post('food_id'),
       'quantity' => $this->input->post('quantity'),
       'price'    => $this->input->post('quantity') * $food_data->row(0)->price,
-      'status'   => "on_order"
+      'status'   => "on_cart"
     );
 
     if ($this->form_validation->run() == TRUE) {
