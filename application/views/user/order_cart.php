@@ -50,7 +50,7 @@
             <?php $this->db->from('carts'); ?>
             <?php $this->db->join('foods', 'foods.id = carts.foods_id'); ?>
             <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
-            <?php $this->db->where('status', "on_order"); ?>
+            <?php $this->db->where('status', "on_cart"); ?>
 
             <?php $query = $this->db->get(); ?>
 
@@ -72,6 +72,7 @@
               <tr>
                 <?php $this->db->select_sum('price'); ?>
                 <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
+                <?php $this->db->where('status', "on_cart"); ?>
                 <?php $query = $this->db->get('carts'); ?>
                 <?php $query = $query->row(); ?>
                 <?php $total_price = $query->price; ?>
@@ -85,7 +86,7 @@
           <div class="pull-right">
             <?php echo form_open('orders/add_cart_to_order'); ?>
             <input type="hidden" name="total_price" value="<?php echo $total_price; ?>">
-            <button class="btn btn-success">Order Checkout</button>
+            <button class="btn btn-success" <?php if($no == 1) echo "disabled";  ?>>Order Checkout</button>
             <?php echo form_open(); ?>
           </div>
 

@@ -2,7 +2,12 @@
 
 class Orders extends CI_Controller {
   public function add_cart_to_order(){
-    $credit = (int) $this->session->userdata('credit');
+
+    $this->db->where('id', $this->session->userdata('user_id'));
+    $result = $this->db->get('users');
+    $result = $result->row();
+
+    $credit = $result->credit;
     $total_price = (int) $this->input->post('total_price');
 
     if ($credit >= $total_price) {
