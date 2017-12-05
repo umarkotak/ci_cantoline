@@ -72,6 +72,7 @@
               <tr>
                 <?php $this->db->select_sum('price'); ?>
                 <?php $this->db->where('users_id', $this->session->userdata('user_id')); ?>
+                <?php $this->db->where('status', "on_cart"); ?>
                 <?php $query = $this->db->get('carts'); ?>
                 <?php $query = $query->row(); ?>
                 <?php $total_price = $query->price; ?>
